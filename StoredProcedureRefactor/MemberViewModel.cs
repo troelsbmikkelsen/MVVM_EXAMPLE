@@ -26,14 +26,17 @@ namespace MVVM_EXAMPLE {
             set
             {
                 _member.Efternavn = value;
-                //RaisePropertyChangedEvent("Efternavn");
+                RaisePropertyChangedEvent("Efternavn");
             }
         }
         
         private void _Load() {
-            _member = DatabaseAccess.GetMemberNr(1);
-            RaisePropertyChangedEvent("Fornavn");
-            RaisePropertyChangedEvent("Efternavn");
+            var __member = DatabaseAccess.GetMemberNr(1);
+
+            Fornavn = __member.Fornavn;
+            Efternavn = __member.Efternavn;
+            //RaisePropertyChangedEvent("Fornavn");
+            //RaisePropertyChangedEvent("Efternavn");
         }
 
         public ICommand Load
